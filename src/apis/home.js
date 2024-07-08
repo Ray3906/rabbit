@@ -1,10 +1,14 @@
 import http from '@/utils/http'
  
 //轮播图API
-export function getbannerAPI() {
+export function getbannerAPI(params = {}) {
+  const { distributionSite = "1" } = params
   return http({
     url: '/home/banner',
-    method: 'get'
+    method: 'get',
+    params: {
+      distributionSite
+    }
   })
 }
 
@@ -31,5 +35,16 @@ export function getHotAPI() {
   return http({
     url: '/home/hot',
     method:'get',
+  })
+}
+
+/**
+ * @description: 获取所有商品模块
+ * @param {*}
+ * @return {*}
+ */
+export const getGoodsAPI = () => {
+  return http({
+    url: '/home/goods'
   })
 }

@@ -1,9 +1,9 @@
 <script setup>
 defineProps({
   title: {
-    type: String
+    type: String,
   },
-  subtitle: {
+  subTitle: {
     type: String
   }
 })
@@ -12,11 +12,11 @@ defineProps({
 <template>
   <div>
     <h1>{{ title }}</h1>
-    <p>{{ subtitle }}</p>
+    <h3>{{ subTitle }}</h3>
   </div>
-  <div>
+  <!-- <div>
     <slot name="content"></slot>
     <slot name="age"></slot>
-  </div>
+  </div> -->
   <slot/>
 </template>
