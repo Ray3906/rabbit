@@ -1,4 +1,3 @@
-
 // import HomeView from '../views/HomeView.vue'
 // const router = createRouter({
 //   history: createWebHistory(import.meta.env.BASE_URL),
@@ -22,39 +21,48 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Layout from '@/views/Layout/layout-index.vue'
 import Category from '@/views/Category/category-index.vue'
 import Login from '@/views/Login/login-index.vue'
-const router= createRouter({
-  history :createWebHistory(import.meta.env.BASE_URL),
-  routes :[
+import subCategory from '@/views/subCategory/subcategory.vue'
+import Detail from '@/views/Detail/Detail-index.vue'
+const router = createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes: [
     {
       path: '/',
-      name: '/',
-      component: () => import('@/App.vue'),
-    },
-    {
-      path:'/layout',
-      name:'layout',
+      name: 'layout',
       component: Layout,
-      
-      children:[
+
+      children: [
         {
-          path:'',
-          name:'home',
-          component:()=>import('@/views/Home/home-index.vue'),
+          path: '',
+          name: 'home',
+          component: () => import('@/views/Home/home-index.vue')
         },
         {
-          path:'category/:id',
-          name:'category',
-          component:Category
+          path: 'category/:id',
+          name: 'category',
+          component: Category
+        },
+        {
+          path: 'category/sub/:id',
+          name: 'subcategory',
+          component: subCategory
+        },
+        {
+          path: 'detail/:id',
+          name: 'detail',
+          component:Detail
         }
       ]
     },
     {
-      path:'/login',
-      name:'login',
-      component:Login,
+      path: '/login',
+      name: 'login',
+      component: Login
     }
-  ]
+  ],
+  scrollBehavior() {
+    return { top: 0 }
+  }
 })
-
 
 export default router

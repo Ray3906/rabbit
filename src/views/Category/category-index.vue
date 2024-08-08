@@ -45,7 +45,7 @@ const {categoryData} =useCategory()
         <!-- 面包屑导航 -->
         <el-breadcrumb separator=">">
           <!-- 导航到首页 -->
-          <el-breadcrumb-item :to="{ path: '/layout' }">首页</el-breadcrumb-item>
+          <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
           <el-breadcrumb-item>{{ categoryData.name }}</el-breadcrumb-item>
         </el-breadcrumb>
       </div>
@@ -60,7 +60,7 @@ const {categoryData} =useCategory()
         <h3>全部分类</h3>
         <ul>
           <li v-for="i in categoryData.children" :key="i.id">
-            <RouterLink to="/layout">
+            <RouterLink :to="`/category/sub/${i.id}`">
               <img :src="i.picture" />
               <p>{{ i.name }}</p>
             </RouterLink>
